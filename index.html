@@ -44,18 +44,18 @@
         word-wrap: break-word;
       }
 
+      .girl {
+        background-color: #005c4b;
+        color: white;
+        align-self: flex-end; /* Reversed position: Align boy's message to the right */
+        text-align: right;
+      }
+
       .boy {
         background-color: #005c4b;
         color: white;
-        align-self: flex-start;
+        align-self: flex-start; /* Reversed position: Align girl's message to the left */
         text-align: left;
-      }
-
-      .girl {
-        background-color: #25d366;
-        color: white;
-        align-self: flex-end;
-        text-align: right;
       }
 
       .english {
@@ -71,92 +71,70 @@
         margin-top: 5px;
         display: block;
       }
+
+      .message-number {
+        position: absolute;
+        top: -10px;
+        left: -10px;
+        font-size: 1.2rem;
+        font-weight: bold;
+        color: #fff;
+        background-color: #333;
+        padding: 2px 6px;
+        border-radius: 50%;
+      }
     </style>
   </head>
   <body>
     <div class="mobile-frame">
-      <div class="chat-container">
+      <div class="chat-container" id="chatContainer">
         <!-- Boy's message -->
-        <div class="message boy">
-          <div class="english">What are you doing</div>
-          <div class="telugu">నువ్వేమి చేస్తున్నావు?</div>
+        <div class="message girl">
+          <div class="message-number"></div>
+          <div class="english">Nenu ranu</div>
+          <div class="telugu">నేను రాను</div>
         </div>
 
         <!-- Girl's reply -->
+        <div class="message boy">
+          <div class="message-number"></div>
+          <div class="english">Endhuku</div>
+          <div class="telugu">ఎందుకు?</div>
+        </div>
+
         <div class="message girl">
-          <div class="english">Coding</div>
-          <div class="telugu">కోడింగ్ చేస్తున్నాను</div>
+          <div class="message-number"></div>
+          <div class="english">Nenu ranu</div>
+          <div class="telugu">నేను రాను</div>
         </div>
 
         <div class="message boy">
-          <div class="english">What are you doing ?</div>
-          <div class="telugu">నువ్వేమి చేస్తున్నావు? నువ్వేమి</div>
+          <div class="message-number"></div>
+          <div class="english">Nenu Emi Cheyanu</div>
+          <div class="telugu">Nenu Emi Cheyanu</div>
         </div>
 
         <div class="message boy">
-          <div class="english">What are you doing</div>
-          <div class="telugu">నువ్వేమి చేస్తున్నావు?</div>
-        </div>
-
-        <!-- Girl's reply -->
-        <div class="message girl">
-          <div class="english">Coding</div>
-          <div class="telugu">కోడింగ్ చేస్తున్నాను</div>
+          <div class="message-number"></div>
+          <div class="english">Matladatha Anthe</div>
+          <div class="telugu">నMatladatha Anthe</div>
         </div>
 
         <div class="message boy">
-          <div class="english">What are you doing ?</div>
-          <div class="telugu">నువ్వేమి చేస్తున్నావు? నువ్వేమి</div>
-        </div>
-
-        <div class="message boy">
-          <div class="english">What are you doing</div>
-          <div class="telugu">నువ్వేమి చేస్తున్నావు?</div>
-        </div>
-
-        <!-- Girl's reply -->
-        <div class="message girl">
-          <div class="english">Coding</div>
-          <div class="telugu">కోడింగ్ చేస్తున్నాను</div>
-        </div>
-
-        <div class="message boy">
-          <div class="english">What are you doing ?</div>
-          <div class="telugu">నువ్వేమి చేస్తున్నావు? నువ్వేమి</div>
-        </div>
-
-        <div class="message boy">
-          <div class="english">What are you doing</div>
-          <div class="telugu">నువ్వేమి చేస్తున్నావు?</div>
-        </div>
-
-        <!-- Girl's reply -->
-        <div class="message girl">
-          <div class="english">Coding</div>
-          <div class="telugu">కోడింగ్ చేస్తున్నాను</div>
-        </div>
-
-        <div class="message boy">
-          <div class="english">What are you doing ?</div>
-          <div class="telugu">నువ్వేమి చేస్తున్నావు? నువ్వేమి</div>
-        </div>
-
-        <div class="message boy">
-          <div class="english">What are you doing</div>
-          <div class="telugu">నువ్వేమి చేస్తున్నావు?</div>
-        </div>
-
-        <!-- Girl's reply -->
-        <div class="message girl">
-          <div class="english">Coding</div>
-          <div class="telugu">కోడింగ్ చేస్తున్నాను</div>
-        </div>
-
-        <div class="message boy">
-          <div class="english">What are you doing ?</div>
-          <div class="telugu">నువ్వేమి చేస్తున్నావు? నువ్వేమి</div>
+          <div class="message-number"></div>
+          <div class="english">Pelli Gurinchi</div>
+          <div class="telugu">Pelli Gurinchi</div>
         </div>
       </div>
     </div>
+
+    <script>
+      // Dynamically add numbers to each message
+      const messages = document.querySelectorAll(".message");
+      messages.forEach((message, index) => {
+        const numberElement = message.querySelector(".message-number");
+        numberElement.textContent = index + 1; // Set number based on the position in the list
+      });
+    </script>
   </body>
 </html>
